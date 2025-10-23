@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bienvenidos</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#F59E0B",
+            "background-light": "#FFFFFF",
+            "background-dark": "#121212",
+            "surface-light": "#F3F4F6",
+            "surface-dark": "#1E1E1E",
+            "text-light": "#1F2937",
+            "text-dark": "#E5E7EB",
+            "text-secondary-light": "#6B7280",
+            "text-secondary-dark": "#9CA3AF"
+          },
+          fontFamily: { display: ["Inter"] },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .particle-container { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+    .particle {
+      position: absolute;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      animation: float 20s infinite ease-in-out;
+      transition: transform .2s ease-out;
+      will-change: transform;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-100vh) translateX(50vw); }
+      100% { transform: translateY(0) translateX(0); }
+    }
+    .particle:nth-child(2){ animation-duration:25s; animation-delay:-5s; }
+    .particle:nth-child(3){ animation-duration:15s; animation-delay:-10s; }
+    .particle:nth-child(4){ animation-duration:30s; animation-delay:-2s; }
+    .particle:nth-child(5){ animation-duration:18s; animation-delay:-8s; }
+
+    .content-container { position: relative; z-index: 1; }
+
+    /* Respeta usuarios con movimiento reducido */
+    @media (prefers-reduced-motion: reduce) {
+      .particle { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-background-dark font-display">
+  <div class="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden">
+    <div class="particle-container">
+      <div class="particle" style="width:10px;height:10px;top:20%;left:10%;"></div>
+      <div class="particle" style="width:5px;height:5px;top:50%;left:80%;"></div>
+      <div class="particle" style="width:15px;height:15px;top:80%;left:30%;"></div>
+      <div class="particle" style="width:8px;height:8px;top:10%;left:90%;"></div>
+      <div class="particle" style="width:12px;height:12px;top:90%;left:5%;"></div>
+      <div class="particle" style="width:6px;height:6px;top:40%;left:40%;"></div>
+      <div class="particle" style="width:9px;height:9px;top:60%;left:70%;"></div>
+    </div>
+
+    <div class="content-container flex flex-col items-center justify-center text-center">
+      <div class="absolute top-8 left-8 flex items-center space-x-2 group">
+        <span class="material-symbols-outlined text-text-dark text-3xl group-hover:text-primary transition-colors duration-300">hub</span>
+        <span class="text-text-dark text-lg font-semibold group-hover:text-primary transition-colors duration-300">WebApp</span>
+      </div>
+
+      <div class="layout-container flex h-full grow flex-col justify-center">
+        <div class="px-6 sm:px-12 lg:px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <h1 class="text-text-dark text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight px-4 text-center pb-3 pt-6 hover:text-primary/90 transition-colors duration-500">
+              Bienvenidos a las recetas de judisita
+            </h1>
+            <p class="text-text-dark/90 text-base sm:text-lg lg:text-xl font-normal pb-3 pt-1 px-4 text-center">
+              Pulsa entrar para continuar al inicio.
+            </p>
+
+            <div class="flex px-4 py-8 justify-center">
+              <button id="enter" class="flex min-w-[160px] max-w-[480px] items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-primary text-white text-lg font-bold tracking-[0.015em] hover:bg-primary/80 transition-colors duration-300 transform hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">
+                <span class="truncate">Entrar</span>
+              </button>
+            </div>
+
+            <button id="guest" class="text-text-dark/70 text-sm underline hover:text-text-dark transition-colors duration-300 mx-auto">
+              Continuar como un chef
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Micro‑interacción: partículas siguen el puntero (desactivable por prefers-reduced-motion)
+    const mediaReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const moveEnabled = () => !mediaReduced.matches;
+
+    const particles = document.querySelectorAll('.particle');
+    document.addEventListener('pointermove', (e) => {
+      if (!moveEnabled()) return;
+      const x = (e.clientX / innerWidth - 0.5) * 2;
+      const y = (e.clientY / innerHeight - 0.5) * 2;
+      particles.forEach((p, i) => {
+        const speed = 10 + (i % 5) * 6;
+        p.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
+      });
+    });
+
+    // Navegación al home
+    const go = () => window.location.assign('home.html'); // usa replace si no quieres historial
+    document.getElementById('enter').addEventListener('click', go);
+    document.getElementById('enter').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+    });
+    document.getElementById('guest').addEventListener('click', go);
+  </script>
+</body>
+</html>
