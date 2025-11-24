@@ -3,28 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pasta al pesto</title>
+  <title>Paella</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
   <script>
     tailwind.config = {
       darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#F59E0B",
-            "background-dark": "#0f141a",
-            "surface-dark": "#161c23"
-          },
-          fontFamily: { display: ["Poppins", "system-ui", "sans-serif"] }
-        }
-      }
+      theme: { extend: { colors: { primary:"#F59E0B","background-dark":"#0f141a","surface-dark":"#161c23" } } }
     }
   </script>
-  <style>
-    body { font-family: Poppins, system-ui, sans-serif; }
-  </style>
+  <style> body{font-family:Poppins,system-ui,sans-serif} </style>
 </head>
 <body class="bg-background-dark text-white">
   <header class="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -32,83 +21,71 @@
       <ol class="flex flex-wrap items-center gap-2">
         <li><a class="hover:underline" href="home.html">Inicio</a></li>
         <li aria-hidden="true">/</li>
-        <li><span aria-current="page" class="text-white">Pasta al pesto</span></li>
+        <li><span aria-current="page" class="text-white">Paella</span></li>
       </ol>
     </nav>
   </header>
 
   <main class="container mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-    <!-- Hero -->
     <section class="rounded-2xl overflow-hidden bg-surface-dark border border-white/10 shadow-xl">
       <figure class="relative">
-        <img src="imagenes/espaguetis-al-pesto.jpg" alt="Pasta al pesto con albahaca"
+        <img src="https://imag.bonviveur.com/paella-de-pollo.webp" alt="Paella servida en paellera con mariscos"
              class="w-full h-[320px] sm:h-[420px] object-cover" width="1600" height="900" loading="eager" />
-        <figcaption class="absolute bottom-3 right-4 px-3 py-1 rounded-full bg-black/40 text-white text-xs backdrop-blur">
-          Foto de referencia
-        </figcaption>
+        <figcaption class="absolute bottom-3 right-4 px-3 py-1 rounded-full bg-black/40 text-white text-xs backdrop-blur">Foto de referencia</figcaption>
       </figure>
 
       <div class="p-6 sm:p-8">
-        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Pasta al pesto</h1>
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Paella</h1>
 
-        <!-- Meta -->
         <div class="mt-3 mb-6 flex flex-wrap items-center gap-3 text-sm text-white/80">
-          <span class="inline-flex items-center gap-1"><span class="material-icons text-base">schedule</span> 15 min</span>
+          <span class="inline-flex items-center gap-1"><span class="material-icons text-base">schedule</span> 35–40 min</span>
           <span class="opacity-40">•</span>
-          <span class="inline-flex items-center gap-1"><span class="material-icons text-base">restaurant</span> 2 porciones</span>
+          <span class="inline-flex items-center gap-1"><span class="material-icons text-base">restaurant</span> 4–6 porciones</span>
           <span class="opacity-40">•</span>
-          <span class="inline-flex items-center gap-1"><span class="material-icons text-base">local_fire_department</span> Fácil</span>
+          <span class="inline-flex items-center gap-1"><span class="material-icons text-base">local_fire_department</span> Media</span>
         </div>
 
-        <!-- Contenido principal con tipografía ampliada -->
         <article class="prose prose-invert prose-slate prose-lg sm:prose-xl max-w-none">
-          <p>Lista en 15 minutos con albahaca fresca, frutos secos y parmesano. Perfecta para una cena rápida entre semana.</p>
+          <p>Arroz tradicional con mariscos y azafrán, ideal para compartir.</p>
 
           <h2>Ingredientes</h2>
           <ul>
-            <li>200 g pasta</li>
-            <li>1 taza albahaca</li>
-            <li>30 g piñones o nuez</li>
-            <li>40 g parmesano</li>
-            <li>2–3 cdas aceite de oliva</li>
-            <li>Sal y pimienta</li>
+            <li>400 g arroz bomba</li>
+            <li>800 ml caldo de pescado</li>
+            <li>300 g mariscos (calamar, mejillones, gambas)</li>
+            <li>1 pimiento rojo y 1 verde, 1 tomate</li>
+            <li>2 dientes de ajo, hebras de azafrán</li>
+            <li>Aceite de oliva, sal y pimienta</li>
           </ul>
 
           <h2>Preparación</h2>
           <ol>
-            <li>Hierve la pasta en agua con sal hasta estar al dente.</li>
-            <li>Tritura albahaca, frutos secos, queso y aceite hasta una salsa cremosa.</li>
-            <li>Mezcla con la pasta caliente, ajusta sal y pimienta, y sirve.</li>
+            <li>Sofríe pimientos y ajo; añade el tomate.</li>
+            <li>Rehoga el arroz y agrega el caldo con azafrán.</li>
+            <li>Distribuye mariscos y cocina 15–18 min sin remover; reposa 5 min.</li>
           </ol>
 
           <details class="mt-6 rounded-xl border border-white/10 p-4 bg-black/20">
             <summary class="cursor-pointer font-semibold">Notas del chef</summary>
             <ul class="mt-3">
-              <li>Tuesta ligeramente los frutos secos para potenciar el sabor.</li>
-              <li>Si queda muy espeso, añade una o dos cucharadas del agua de cocción.</li>
-              <li>Para versión vegana, sustituye parmesano por levadura nutricional.</li>
+              <li>No remuevas el arroz: busca el socarrat al final.</li>
+              <li>Caldo caliente siempre para no cortar la cocción.</li>
+              <li>Azafrán auténtico rinde mejor que pimentón por color/sabor.</li>
             </ul>
           </details>
 
           <h3>Información nutricional (aprox. por porción)</h3>
           <ul>
-            <li>Calorías: 520</li>
-            <li>Carbohidratos: 62 g — Proteína: 16 g — Grasas: 22 g</li>
-            <li>Alérgenos: frutos secos, lácteos</li>
+            <li>Calorías: 590</li>
+            <li>Carbohidratos: 72 g — Proteína: 26 g — Grasas: 18 g</li>
+            <li>Alérgenos: mariscos</li>
           </ul>
         </article>
 
-        <!-- Acciones -->
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href="brownies.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/15 hover:bg-white/10 transition">
-            ← Anterior: Brownies
-          </a>
-          <a href="tacos.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/15 hover:bg-white/10 transition">
-            Siguiente: Tacos →
-          </a>
-          <a href="home.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-black font-semibold hover:brightness-110 transition">
-            <span class="material-icons text-base">home</span> Volver al listado
-          </a>
+          <a href="tacos.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/15 hover:bg-white/10 transition">← Anterior: Tacos</a>
+          <a href="brownies.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/15 hover:bg-white/10 transition">Siguiente: Brownies →</a>
+          <a href="home.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-black font-semibold hover:brightness-110 transition"><span class="material-icons text-base">home</span> Volver al listado</a>
         </div>
       </div>
     </section>
